@@ -14,6 +14,9 @@ const FOTOS = [
   { id: 1, text: "Donde empezó todo...", img: require('./assets/foto1.png') },
   { id: 2, text: "Un viaje inolvidable", img: require('./assets/foto2.png') },
   { id: 3, text: "Para siempre juntos", img: require('./assets/foto3.png') },
+  { id: 3, text: "Para siempre juntos", img: require('./assets/foto4.png') },
+  { id: 3, text: "Para siempre juntos", img: require('./assets/foto5.png') },
+  { id: 3, text: "Para siempre juntos", img: require('./assets/foto6.png') },
 ];
 
 export default function App() {
