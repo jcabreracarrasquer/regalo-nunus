@@ -17,7 +17,7 @@ export default function App() {
   // Función para abrir Spotify
   const openSpotify = () => {
     // Aquí pondrás el link de tu canción, por ahora pongo uno de ejemplo
-    Linking.openURL('https://open.spotify.com/track/4uLU6hMCjMI75M1A2tKUQC'); 
+    Linking.openURL('https://open.spotify.com/intl-es/track/6l18mUHOGVZRr5wTyITX0M?si=0569719bae744c18'); 
   };
 
   return (
