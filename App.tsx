@@ -136,33 +136,17 @@ export default function App() {
         <Text style={styles.sectionTitle}>Nuestra Canción</Text>
         <View style={[styles.songContainer, { flexDirection: isMobile ? 'column' : 'row' }]}>
           <View style={[styles.playerCard, { width: isMobile ? '100%' : '38%', marginBottom: isMobile ? 40 : 0 }]}>
-             <Image source={require('./assets/foto2.png')} style={styles.albumCover} />
+             <Image source={require('./assets/foto1.png')} style={styles.albumCover} />
              <Pressable style={styles.spotifyButton} onPress={openSpotify}>
                 <Text style={styles.spotifyButtonText}>REPRODUCIR EN SPOTIFY</Text>
              </Pressable>
           </View>
           <View style={[styles.songTextWrapper, { width: isMobile ? '100%' : '55%', paddingHorizontal: isMobile ? 0 : 20 }]}>
             <Text style={styles.explanationText}>
-              Cada vez que suena esta canción me transporta directamente a esos momentos nuestros.
+              La cantaría mil veces más contigo
             </Text>
           </View>
         </View>
-      </View>
-
-      <View style={[styles.section, { paddingHorizontal: isMobile ? 20 : 0, marginTop: 40 }]}>
-         <Text style={styles.sectionTitle}>El Archivo</Text>
-         <View style={styles.archiveContainer}>
-            <Pressable onPress={() => openGalleryViewer([require('./assets/foto1.png'), require('./assets/foto2.png')], "Bilbao", "Marzo 2026")}>
-                <View style={styles.travelHeader}>
-                    <Text style={styles.travelLocation}>📍 Bilbao, País Vasco</Text>
-                    <Text style={styles.travelDate}>7 - 8 Marzo 2026 🔍</Text>
-                </View>
-            </Pressable>
-            <View style={styles.travelPhotosGrid}>
-                <Image source={require('./assets/foto1.png')} style={[styles.travelPhoto, { width: isMobile ? '48%' : '23%' }]} />
-                <Image source={require('./assets/foto2.png')} style={[styles.travelPhoto, { width: isMobile ? '48%' : '23%' }]} />
-            </View>
-         </View>
       </View>
 
       <View style={styles.footer}>
