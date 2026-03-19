@@ -96,7 +96,7 @@ export default function App() {
   const [currentGallery, setCurrentGallery] = useState<GalleryData>({ photos: [], location: '', date: '' });
 
   const openSpotify = () => Linking.openURL('https://open.spotify.com/intl-es/track/6l18mUHOGVZRr5wTyITX0M?si=c3d5c1cf2c414401'); 
-  const openMap = () => Linking.openURL('google.com/maps/dir/Zaragoza-delicias,+Av.+de+Navarra,+80,+50011+Zaragoza/Ibis+Bilbao+Barakaldo,+Retuerto,+69+Barrio+De+Kareaga+Norte,+Nº+Reg,+Hbi01170,+48903+San+Vicente+de+Barakaldo,+Bizkaia/@42.3411533,-3.1004446,287251m/data=!3m2!1e3!5s0xd4e50a9b5710ed1:0x2cc3133d7fad94e6!4m13!4m12!1m5!1m1!1s0xd596b49be33de8f:0x28a5a027ddc927aa!2m2!1d-0.91127!2d41.65866!1m5!1m1!1s0xd4e50c3ffffffc9:0xa256f10809693b6c!2m2!1d-3.0101498!2d43.2887683?entry=ttu&g_ep=EgoyMDI2MDMxNS4wIKXMDSoASAFQAw%3D%3D'); 
+  const openMap = () => Linking.openURL('https://www.google.es/maps/dir/Zaragoza/Bilbao,+Vizcaya/@42.4495818,-3.2364374,313238m/am=t/data=!3m1!1e3!4m13!4m12!1m5!1m1!1s0xd5914dd5e618e91:0x49df13f1158489a8!2m2!1d-0.8861451!2d41.6474339!1m5!1m1!1s0xd4e4e27664b89b9:0x6534acc41e95a645!2m2!1d-2.9348121!2d43.2633799?hl=es&entry=ttu&g_ep=EgoyMDI2MDMxNS4wIKXMDSoASAFQAw%3D%3D'); 
 
   const openGalleryViewer = (photos: any[], location: string, date: string) => {
     setCurrentGallery({ photos, location, date });
