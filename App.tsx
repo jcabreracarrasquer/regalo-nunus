@@ -126,7 +126,7 @@ export default function App() {
               Acabando ya, quiero que sepas que voy a luchar por ti. Por muchos kilómetros que haya de por medio, aquí estaré esperando mil horas a que me llames...{'\n'}
             </Text>
             <Text style={[styles.signature, { fontFamily: Platform.OS === 'web' ? "'Dancing Script', cursive" : 'serif' }]}>
-              Te quiere mucho,{'\n'}Jorge ❤️
+              Te quiero mucho,{'\n'}Jorge ❤️
             </Text>
           </View>
         </View>
@@ -181,21 +181,7 @@ export default function App() {
         </View>
       </View>
 
-      <View style={[styles.section, { paddingHorizontal: isMobile ? 20 : 0, marginTop: 40 }]}>
-         <Text style={styles.sectionTitle}>El Archivo</Text>
-         <View style={styles.archiveContainer}>
-            <Pressable onPress={() => openGalleryViewer([require('./assets/foto1.png'), require('./assets/foto2.png')], "Bilbao", "Marzo 2026")}>
-                <View style={styles.travelHeader}>
-                    <Text style={styles.travelLocation}>📍 Bilbao, País Vasco</Text>
-                    <Text style={styles.travelDate}>7 - 8 Marzo 2026 🔍</Text>
-                </View>
-            </Pressable>
-            <View style={styles.travelPhotosGrid}>
-                <Image source={require('./assets/foto1.png')} style={[styles.travelPhoto, { width: isMobile ? '48%' : '23%' }]} />
-                <Image source={require('./assets/foto2.png')} style={[styles.travelPhoto, { width: isMobile ? '48%' : '23%' }]} />
-            </View>
-         </View>
-      </View>
+
 
       <View style={styles.footer}>
         <Text style={styles.footerText}>DE JUANILLO A NUNUS</Text>
