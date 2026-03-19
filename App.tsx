@@ -30,7 +30,7 @@ const COLORS = {
   lightText: '#888888',
   cardBg: '#0D0D0D',
   routeMap: '#111111',
-  overlay: 'rgba(0,0,0,0.9)'
+  overlay: 'rgba(0,0,0,0.9)' // Color para el fondo del visualizador ampliado
 };
 
 const TimeCounter = () => {
@@ -95,7 +95,7 @@ export default function App() {
   const [viewerVisible, setViewerVisible] = useState(false);
   const [currentGallery, setCurrentGallery] = useState<GalleryData>({ photos: [], location: '', date: '' });
 
-  const openSpotify = () => Linking.openURL('https://open.spotify.com'); 
+  const openSpotify = () => Linking.openURL('https://open.spotify.com/intl-es/track/6l18mUHOGVZRr5wTyITX0M?si=c3d5c1cf2c414401'); 
   const openMap = () => Linking.openURL('https://maps.google.com'); 
 
   const openGalleryViewer = (photos: any[], location: string, date: string) => {
@@ -149,6 +149,54 @@ export default function App() {
         </View>
       </View>
 
+      {/* --- SECCIÓN AÑADIDA: EL MAPA --- */}
+      <View style={[styles.section, { paddingHorizontal: isMobile ? 20 : 0 }]}>
+        <Text style={styles.sectionTitle}>Distancia (dos saltos)</Text>
+        
+        <View style={styles.routeMapCard}>
+           <View style={styles.routeVisual}>
+              <View style={styles.cityCol}>
+                 <Text style={styles.cityText}>Zgz</Text>
+                 <Text style={styles.citySub}>Zaragoza</Text>
+              </View>
+
+              <View style={styles.routeLineBox}>
+                 <Text style={styles.routeKm}>303 Kilómetros</Text>
+                 <View style={styles.dashedLineContainer}>
+                    <View style={styles.routeDot} />
+                    <View style={styles.dashedLine} />
+                    <View style={styles.routeDot} />
+                 </View>
+              </View>
+
+              <View style={styles.cityCol}>
+                 <Text style={styles.cityText}>Bil</Text>
+                 <Text style={styles.citySub}>Bilbao</Text>
+              </View>
+           </View>
+
+           <Pressable style={({ pressed }) => [styles.mapButton, { opacity: pressed ? 0.8 : 1 }]} onPress={openMap}>
+              <Text style={styles.mapButtonText}>VER RUTA EN GOOGLE MAPS 📍</Text>
+           </Pressable>
+        </View>
+      </View>
+
+      <View style={[styles.section, { paddingHorizontal: isMobile ? 20 : 0, marginTop: 40 }]}>
+         <Text style={styles.sectionTitle}>El Archivo</Text>
+         <View style={styles.archiveContainer}>
+            <Pressable onPress={() => openGalleryViewer([require('./assets/foto1.png'), require('./assets/foto2.png')], "Bilbao", "Marzo 2026")}>
+                <View style={styles.travelHeader}>
+                    <Text style={styles.travelLocation}>📍 Bilbao, País Vasco</Text>
+                    <Text style={styles.travelDate}>7 - 8 Marzo 2026 🔍</Text>
+                </View>
+            </Pressable>
+            <View style={styles.travelPhotosGrid}>
+                <Image source={require('./assets/foto1.png')} style={[styles.travelPhoto, { width: isMobile ? '48%' : '23%' }]} />
+                <Image source={require('./assets/foto2.png')} style={[styles.travelPhoto, { width: isMobile ? '48%' : '23%' }]} />
+            </View>
+         </View>
+      </View>
+
       <View style={styles.footer}>
         <Text style={styles.footerText}>DE JUANILLO A NUNUS</Text>
       </View>
@@ -194,6 +242,21 @@ const styles = StyleSheet.create({
   spotifyButtonText: { color: '#FFF', fontWeight: 'bold', fontSize: 12 },
   songTextWrapper: { justifyContent: 'center' },
   explanationText: { fontSize: 18, color: '#CCCCCC', fontStyle: 'italic' },
+  
+  // --- ESTILOS DEL MAPA AÑADIDOS ---
+  routeMapCard: { backgroundColor: COLORS.routeMap, borderRadius: 16, padding: 30, borderWidth: 1, borderColor: '#222', alignItems: 'center' },
+  routeVisual: { flexDirection: 'row', width: '100%', justifyContent: 'space-between', alignItems: 'center', marginBottom: 30 },
+  cityCol: { alignItems: 'center', width: 80 },
+  cityText: { fontSize: 28, fontWeight: '900', color: '#FFF', letterSpacing: 2 },
+  citySub: { fontSize: 12, color: COLORS.lightText, textTransform: 'uppercase', letterSpacing: 1, marginTop: 5 },
+  routeLineBox: { flex: 1, alignItems: 'center', paddingHorizontal: 15 },
+  routeKm: { fontSize: 16, fontWeight: 'bold', color: COLORS.accent, marginBottom: 10 },
+  dashedLineContainer: { flexDirection: 'row', alignItems: 'center', width: '100%' },
+  routeDot: { width: 12, height: 12, borderRadius: 6, backgroundColor: COLORS.accent },
+  dashedLine: { flex: 1, height: 2, borderWidth: 1, borderColor: '#444', borderStyle: 'dashed', marginHorizontal: 5 },
+  mapButton: { paddingVertical: 12, paddingHorizontal: 25, borderRadius: 30, borderWidth: 1, borderColor: COLORS.accent, backgroundColor: 'rgba(217, 67, 67, 0.1)' },
+  mapButtonText: { color: COLORS.accent, fontSize: 12, fontWeight: 'bold', letterSpacing: 1 },
+
   archiveContainer: { backgroundColor: '#0A0A0A', borderRadius: 16, padding: 20 },
   travelHeader: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 20 },
   travelLocation: { color: '#FFF', fontSize: 18, fontWeight: 'bold' },
